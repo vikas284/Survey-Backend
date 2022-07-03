@@ -1,0 +1,414 @@
+{
+    "swagger": "2.0",
+    "host": "",
+    "basePath": "",
+    "tags": [
+        {
+            "name": "User",
+            "description": "Survey Operations about User"
+        },
+        {
+            "name": "Survey",
+            "description": "Create New Survey"
+        }
+    ],
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "paths": {
+        "/user": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Create a User for Superadmin use.",
+                "description": "Create a User for Managing Superadmin",
+                "operationId": "registerUser",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "User Data",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/registerUser"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Get All User",
+                "description": "Get All user for Superadmin",
+                "operationId": "getUser",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "JWT token to be passed as a Header",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/user/{id}": {
+            "delete": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Delete User",
+                "description": "Delete user Superadmin",
+                "operationId": "deleteUser",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "JWT token to be passed as a Header",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "User MongoDB ID",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/user/login": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "User login Superadmin use.",
+                "description": "User Login for Managing Superadmin",
+                "operationId": "loginUser",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "User Data",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/loginUser"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/survey": {
+            "post": {
+                "tags": [
+                    "Survey"
+                ],
+                "summary": "Create New Survey",
+                "description": "Create a New Survey - Need to create by admin",
+                "operationId": "createSurvey",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "JWT token to be passed as a Header",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "User Data",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/createSurvey"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "Survey"
+                ],
+                "summary": "Get All Survey List",
+                "description": "Get All user for Superadmin",
+                "operationId": "getSurvey",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "JWT token to be passed as a Header",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/survey/{id}": {
+            "get": {
+                "tags": [
+                    "Survey"
+                ],
+                "summary": "Get All Survey List",
+                "description": "Get All Survey list to List on Admin",
+                "operationId": "getSurvey",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "JWT token to be passed as a Header",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "Survey Id to be passed as String",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Survey"
+                ],
+                "summary": "Update Existing Survey",
+                "description": "Update Survey - Need to Update by admin",
+                "operationId": "updateSurvey",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "JWT token to be passed as a Header",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "Survey Id to be passed as String",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Survey Data",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/createSurvey"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Survey"
+                ],
+                "summary": "Delete Existing Survey",
+                "description": "Delete Survey - Need to be done by admin",
+                "operationId": "deleteSurvey",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "JWT token to be passed as a Header",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "Survey Id to be passed as String",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/survey/assign/{id}/{email}": {
+            
+            "put": {
+                "tags": [
+                    "Survey"
+                ],
+                "summary": "Assign Existing Survey to User",
+                "description": "Assign Survey to user - Need to Update by admin",
+                "operationId": "assignSurvey",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "JWT token to be passed as a Header",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "Survey Id to be passed as String",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "email",
+                        "description": "User Email to be passed as String",
+                        "type": "string",
+                        "required": true
+                    }
+                    
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+            
+        }
+    },
+    "definitions": {
+        "registerUser": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                }
+            }
+        },
+        "loginUser": {
+            "type": "object",
+            "properties": {
+                "email": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                }
+            }
+        },
+        "createSurvey": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "questions": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "string"
+                            },
+                            "question": {
+                                "type": "string"
+                            },
+                            "type": {
+                                "type": "string"
+                            },
+                            "option": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "assigne": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "createdBy": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
