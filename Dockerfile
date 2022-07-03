@@ -1,4 +1,4 @@
-FROM node:14.19.3-alpine
+FROM node:15-alpine
 
 # Copy package.json first and run npm install.
 # This is to avoid re-creating the base layer for each image build.
