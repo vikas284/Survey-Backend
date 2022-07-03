@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  survey-db:
+    image: mongo:latest
+    ports:
+      - 27019:27017
+    volumes:
+      - /data:/data/db
+    container_name: survey-db
+  survey-backend:
+    image: survey-apis:dev
+    ports:
+      - 3000:3000
+    container_name: survey-backend
+    links:
+      - survey-db
+    environment:
+     - NODE_ENV=development
+
+
+     
