@@ -9,8 +9,7 @@ WORKDIR /opt/survey/backend/code
 ENV NODE_ENV=development
 
 # Run basic apt-get update / install commands and npm install.
-RUN apt-get update && \
-    npm install
+RUN npm install
 
 RUN npm install pm2 -g
 
