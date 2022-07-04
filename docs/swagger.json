@@ -1,7 +1,7 @@
 {
     "swagger": "2.0",
     "host": "",
-    "basePath": "",
+    "basePath": "/api-survey",
     "tags": [
         {
             "name": "User",
