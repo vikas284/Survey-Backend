@@ -13,7 +13,7 @@ const surveyRouter = require('./routes/survey.routes');
 
 const mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://localhost:27017/survey", { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect("mongodb://survey-db:27017/survey", { useNewUrlParser: true, useUnifiedTopology: true });
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

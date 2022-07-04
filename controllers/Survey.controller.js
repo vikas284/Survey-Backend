@@ -34,7 +34,7 @@ const assigne = async (req, res, next) => {
         let assignedUser = survey.assigne;
         assignedUser.push(req.params.email);
         let updatedSurvey = await Survey.update({ _id: id }, { assigne: assignedUser });
-        survey.link = 'http://localhost:4200/survey/' + id + '/' + req.params.email;
+        survey.link = 'http://13.41.83.79/survey-user/survey/' + id + '/' + req.params.email;
         EmailService.register(survey, req.params.email);
         return res.status(200).json(updatedSurvey);
     } catch (error) {
